@@ -1,0 +1,19 @@
+package com.selenium_demo1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Hello_selenium {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\Driver99999\\chromedriver.exe");
+		ChromeDriver driver=new ChromeDriver(); //chromedriver class
+		driver.get("https://www.rediff.com/"); // driver.get() and driver.navigateto-->if you want to use backward and forward but not usable in get() method
+		Thread.sleep(3000); //to give a pause for 3 secs
+		driver.findElement(By.linkText("Create Account")).click();
+		driver.findElement(By.xpath("//*[@id=\"tblcrtac\"]/tbody/tr[3]/td[3]/input")).sendKeys("Chandan"); // sendkeys to send the value to the text box
+		driver.findElement(By.name("login0189e028")).sendKeys("chandanrocks24");
+		
+	}
+
+}

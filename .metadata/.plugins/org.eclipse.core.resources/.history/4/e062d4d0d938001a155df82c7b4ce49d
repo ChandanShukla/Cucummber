@@ -1,0 +1,30 @@
+package com.maven_demo1;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+
+public class Makemytrip {
+WebDriver driver;	
+  @Test
+  public void f() {
+	  driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div[1]/div[1]/div[1]/div/div")).click();
+  }
+  @BeforeTest
+  public void beforeTest() {
+	  
+	  System.setProperty("webdriver.chrome.driver","C:\\Driver99999\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  driver.manage().window().maximize();
+	  driver.get("https://www.makemytrip.com/");
+	 
+  }
+
+  @AfterTest
+  public void afterTest() {
+  }
+
+}

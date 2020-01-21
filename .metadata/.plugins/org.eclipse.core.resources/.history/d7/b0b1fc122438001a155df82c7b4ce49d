@@ -1,0 +1,28 @@
+package com.maven_demo1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class TestMEApp_SignUp {
+WebDriver driver;	
+  @BeforeTest
+  public void launch() {
+	  System.setProperty("webdriver.chrome.driver","C:\\Driver99999\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  driver.get("http://10.232.237.143:443/TestMeApp/fetchcat.htm");
+	  driver.manage().window().maximize();
+  }
+  @Test
+  public void f() throws InterruptedException {
+	  driver.findElement(By.xpath("//*[@id=\"header\"]/div[1]/div/div/div[2]/div/ul/li[1]/a")).click();
+	  Thread.sleep(3000);
+	  driver.findElement(By.id("userName")).sendKeys("lalitha");
+	  driver.findElement(By.xpath("//*[@placeholder='Password'")).sendKeys("password123");
+	  
+	  
+	  
+  }
+}

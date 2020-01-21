@@ -1,0 +1,9 @@
+package com.maven_demo1;
+
+import org.testng.annotations.Test;
+
+public class Capture_screenshot_by_using_utility_package {
+  @Test
+  public void f() {
+  }
+}

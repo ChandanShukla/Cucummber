@@ -1,0 +1,30 @@
+package com.maven_demo1;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+
+public class HDFC_Bank {
+	WebDriver driver;
+  @Test
+  public void f() {
+	  driver.switchTo().frame(2);
+	  driver.findElement(By.xpath("/html/body/form/p/a[2]")).click();
+  }
+  @BeforeTest
+  public void beforeTest() {
+	  
+	  System.setProperty("webdriver.chrome.driver","C:\\Driver99999\\chromedriver.exe");
+	  driver = new ChromeDriver();
+	  driver.manage().window().maximize();
+	  driver.get("https://netbanking.hdfcbank.com/netbanking/");
+  }
+
+  @AfterTest
+  public void afterTest() {
+  }
+
+}

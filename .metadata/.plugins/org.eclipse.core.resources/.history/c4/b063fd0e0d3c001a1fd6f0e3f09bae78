@@ -1,0 +1,84 @@
+package com.maven_demo1;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.accenture.utility.Capture_screenshot;
+
+public class Capture_screenshot_by_using_utility_package {
+	WebDriver driver;
+	@BeforeTest
+	public void beforeTest() {
+		System.setProperty("webdriver.chrome.driver", "C://driver99999//chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("http://10.232.237.143:443/TestMeApp/fetchcat.htm");
+		
+		Capture_screenshot.captureScreenShot(driver);
+	}
+	@Test(priority=1, enabled=true)
+	public void login() throws InterruptedException {
+		
+		driver.manage().window().maximize();
+		try{
+			driver.findElement(By.linkText("SignIn")).click();
+		}
+		catch (Exception e){
+			System.out.println("I'm in Sign in exception");
+			Capture_screenshot.captureScreenShot(driver);
+		}
+
+		try{
+			WebElement uname= driver.findElement(By.name("userNam"));
+			uname.sendKeys("pravin");
+		}
+		catch (Exception e){
+			System.out.println("I'm in username exception");
+			Capture_screenshot.captureScreenShot(driver);
+		}
+
+		try{
+			WebElement pwd= driver.findElement(By.name("password"));
+			pwd.sendKeys("password123");
+		}
+		catch (Exception e){
+			System.out.println("I'm in password exception");
+			Capture_screenshot.captureScreenShot(driver);
+		}
+		
+		try{
+			WebElement login_btn=  driver.findElement(By.name("Login"));
+			login_btn.click();
+		}
+		catch (Exception e){
+			System.out.println("I'm in login button exception");
+			Capture_screenshot.captureScreenShot(driver);
+		}
+
+	}	
+}
+
+
+
+
+
+
+
+
+
+
